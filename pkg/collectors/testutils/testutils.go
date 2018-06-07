@@ -34,7 +34,7 @@ import (
 func GatherAndCompare(c prometheus.Collector, expected string, metricNames []string) error {
 	expected = removeUnusedWhitespace(expected)
 
-	reg := prometheus.NewPedanticRegistry()
+	reg := prometheus.NewRegistry()
 	if err := reg.Register(c); err != nil {
 		return fmt.Errorf("registering collector failed: %s", err)
 	}
